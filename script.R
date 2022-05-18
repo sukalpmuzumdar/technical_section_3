@@ -5,7 +5,8 @@
 package_list = c("dplyr", "ggplot2", "tibble", 
                  "reshape2", "reactable", "ggpubr", "rstatix",
                  "parallel", "ggrepel", "tidyr", "stringr", 
-                 "dendsort", "reactablefmtr", "circlize")
+                 "dendsort", "reactablefmtr", "circlize",
+                 "BiocManager")
 
 bioc_packages = c("DESeq2", "fgsea", "ComplexHeatmap")
 
@@ -516,7 +517,7 @@ enrich_up_plt <- go_plot %>%
     xlab("-Log2 (adj. P)") + 
     ylab("") + theme_bw() +
     theme(panel.grid = element_blank(), axis.text.y = element_text(size = 10),
-          plot.title = element_text(hjust = 0.5)) + 
+          plot.title = element_text(hjust = 1.5, size = 15)) + 
     scale_size_continuous(name = "-Log2 (adj. P)") + scale_color_continuous(name = "-Log2 (Adj. p)") + 
     ggtitle("Enriched GO terms (up-regulated genes)")
 
@@ -535,7 +536,7 @@ enrich_down_plt <- go_plot %>%
     xlab("-Log2 (adj. P)") + 
     ylab("") + theme_bw() +
     theme(panel.grid = element_blank(), axis.text.y = element_text(size = 10),
-          plot.title = element_text(hjust = 0.5)) + 
+          plot.title = element_text(hjust = 1.5, size = 15)) + 
     scale_size_continuous(name = "-Log2 (adj. P)") + scale_color_continuous(name = "-Log2 (Adj. p)") + 
   ggtitle("Enriched GO terms (down-regulated genes)")
 
