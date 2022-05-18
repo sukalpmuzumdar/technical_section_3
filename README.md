@@ -4,4 +4,8 @@ notebook.Rmd - RMarkdown notebook detailing individual steps of the analysis - t
 
 script.R - R script to analyze provided dataset - the output plots/tables are stored in the output folder.
 
+notebook.html - RMarkdown output from notebook.Rmd.
+
+output/ - Folder containing output images from script.R.
+
 The script and the notebook was tested in RStudio Server using R v. 4.1.0 and R v. 4.2.0.
