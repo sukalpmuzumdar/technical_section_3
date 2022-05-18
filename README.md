@@ -10,4 +10,6 @@ output/ - Folder containing output images from script.R.
 
 biomarkers.csv - File with the names of the putative biomarkers.
 
+gene_count_matrix.csv - Genes x counts matrix in CSV format.
+
 The script and the notebook was tested in RStudio Server using R v. 4.1.0 and R v. 4.2.0.
