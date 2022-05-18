@@ -4,4 +4,12 @@ notebook.Rmd - RMarkdown notebook detailing individual steps of the analysis - t
 
 script.R - R script to analyze provided dataset - the output plots/tables are stored in the output folder.
 
-The script and the notebook was tested in RStudio Server using R v. 4.1 and R v. 4.2 on a node with 32 cores - running time was ~ 2mins, while on a Macbook, the running time was ~10mins.
+notebook.html - RMarkdown output from notebook.Rmd.
+
+output/ - Folder containing output images from script.R.
+
+biomarkers.csv - File with the names of the putative biomarkers.
+
+gene_count_matrix.csv - Genes x counts matrix in CSV format.
+
+The script and the notebook was tested in RStudio Server using R v. 4.1.0 and R v. 4.2.0.
