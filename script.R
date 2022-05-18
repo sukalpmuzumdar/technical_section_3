@@ -373,12 +373,12 @@ de_results <- lfcShrink(dds, contrast = c("smpl_type", "disease", "control"), ty
 de_tbl <- data.frame(de_results) %>% rownames_to_column("gene")
 
 # Volcano plot to display top up- and down-regulated genes in disease state vs controls - uses a threshold of 
-# abs(log2FC) > 0.75 and adj. P-value < 0.05 to select genes which are DE. 
+# abs(log2FC) > 1.0 and adj. P-value < 0.05 to select genes which are DE. 
 # Also, genes which are assigned a NA adj. P value by DESeq2 are excluded 
 # (genes which did not pass independent filtering/have outliers as measured by Cook's distance)
 
 `%notin%` <- Negate(`%in%`)
-l2fc_thresh = 0.75
+l2fc_thresh = 1.0
 padj_thresh = 0.05
   
 filt_de_tbl <-

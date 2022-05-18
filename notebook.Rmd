@@ -260,7 +260,7 @@ Heatmap(t(mat[,-1]), top_annotation = ha, name = "Z-score", cluster_columns = co
 
 Can the expression of any of the biomarker genes classify disease samples from controls? This can be evaluated by looking at whether the normalized expression of any gene can accurately segregate the disease samples from the control samples. This can be evaluated by means of an AUROC using the following formula - 
 
-$${AUC=\frac {U} {{N}_{disease}*{{N}_{control}}}}$$ (where U is derived from the Mann-Whitney test - Hanley and McNeil, 1982)
+$${AUROC=\frac {U} {{N}_{disease}*{{N}_{control}}}}$$ (where U is the Mann-Whitney test statistic - Hanley and McNeil, 1982)
 
 ```{r}
 res.pred.disease <- data.frame()
@@ -327,7 +327,7 @@ lower_bound <- emp.null %>%
   round(2)
 ```
 
-Plot the gene-level AUROCs, with the upper and lower thresholds as defined from the empirical null model. An AUROC value of more than 0.5 indicates that the disease samples were preferentially ranked above the control samples, and conversely a value below 0.5 indicates the disease samples were preferentially ranked below the control samples. An AUROC of exactly 0.5 represents random classification.
+Plot the gene-level AUROCs, with the upper and lower thresholds as defined from the empirical null model. An AUROC value of more than 0.5 indicates that the disease samples were preferentially ranked above the control samples, and conversely a value below 0.5 indicates the disease samples were preferentially ranked below the control samples. An AUROC of exactly 0.5 represents random classification. DLX3 and KLK10 may have some value as a biomarker, however more samples/replicates are definitely needed to gain more confidence. 
 
 ```{r, fig.height=4, fig.width=6}
 res.pred.disease %>%
@@ -437,11 +437,11 @@ de_tbl <- data.frame(de_results) %>%
   rownames_to_column("gene")
 ```
 
-Volcano plot to display top up- and down-regulated genes in disease state vs controls - uses a threshold of abs(log2FC) > 0.75 and adj. P-value < 0.05 to select genes which are DE. Also, genes which are assigned a NA adj. P value by DESeq2 are excluded (genes which did not pass independent filtering/have outliers as measured by Cook's distance)
+Volcano plot to display top up- and down-regulated genes in disease state vs controls - uses a threshold of abs(log2FC) > 1.0 and adj. P-value < 0.05 to select genes which are DE. Also, genes which are assigned a NA adj. P value by DESeq2 are excluded (genes which did not pass independent filtering/have outliers as measured by Cook's distance)
 
 ```{r, fig.height=6, fig.width=10}
 `%notin%` <- Negate(`%in%`)
-l2fc_thresh = 0.75
+l2fc_thresh = 1.0
 padj_thresh = 0.05
   
 filt_de_tbl <-
@@ -491,8 +491,6 @@ rbind(subset(filt_de_tbl,
         strip.text = element_text(size = 16),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 12))
-    
-
 ```
 
 Enrichment analysis is performed in a fashion similar to GSEA (which uses the K-S test)
