@@ -1,1 +1,7 @@
-# technical_section_3
+# Technical section 3
+
+notebook.Rmd - RMarkdown notebook detailing individual steps of the analysis - the final output is stored in notebook.html.
+
+script.R - R script to analyze provided dataset - the output plots/tables are stored in the output folder.
+
+The script and the notebook was tested in RStudio Server using R v. 4.1 and R v. 4.2 on a node with 32 cores - running time was ~ 2mins, while on a Macbook, the running time was ~10mins.
